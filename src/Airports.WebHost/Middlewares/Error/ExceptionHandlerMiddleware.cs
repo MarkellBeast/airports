@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Airports.WebHost.Middlewares.Error
 {
-    public class ExceptionHandlerMiddleware
+    public class ExceptionHandlerMiddleware 
     {
         private const string DefaultServerErrorMessage = "Internal Server Error";
 
@@ -18,6 +18,7 @@ namespace Airports.WebHost.Middlewares.Error
         {
             { typeof(ResourceNotFoundException), StatusCodes.Status404NotFound },
             { typeof(InvalidOperationException), StatusCodes.Status400BadRequest },
+            { typeof(ArgumentNullException), StatusCodes.Status400BadRequest }
         };
 
         public ExceptionHandlerMiddleware(RequestDelegate next)
